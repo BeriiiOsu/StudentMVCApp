@@ -40,9 +40,6 @@ namespace StudentMVCApp
                 if (student.FullName.Contains(txtSearch.Text, StringComparison.OrdinalIgnoreCase))
                     lstStudents.Items.Add($"{student.Id} - {student.FullName}, Age: {student.Age}");
             });
-            searchList.Sort();
-            foreach (var student in searchList)
-                lstStudents.Items.Add($"{student.Id} - {student.FullName}, Age: {student.Age}");
         }
         private void ClearFields()
         {
