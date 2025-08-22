@@ -41,22 +41,5 @@ namespace StudentMVCApp.Controller
 
             return _repository.EditStudent(student, id);
         }
-
-        //public string EditStudent(int id, Student updatedStudent)
-        //{
-        //    if (updatedStudent == null)
-        //        return "Updated student cannot be null.";
-        //    try
-        //    {
-        //        var students = _repository.GetAllStudents();
-        //        var student = students.FirstOrDefault(s => s.Id == id);
-        //        if (student == null)
-        //            return "Student not found.";
-        //        student.FullName = updatedStudent.FullName;
-        //        student.Age = updatedStudent.Age;
-        //        return "Student updated successfully.";
-        //    }
-        //    catch (Exception ex) { return $"Error updating student: {ex.Message}"; }
-        //}
     }
 }
