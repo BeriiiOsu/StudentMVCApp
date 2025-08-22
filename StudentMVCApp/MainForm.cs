@@ -22,5 +22,12 @@ namespace StudentMVCApp.View
             studentForm.Show();
         }
         private void exitToolStripMenuItem1_Click(object sender, EventArgs e) { Application.Exit(); }
+
+        private void searchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SearchForm searchForm = new SearchForm();
+            searchForm.MdiParent = this;
+            searchForm.Show();
+        }
     }
 }
