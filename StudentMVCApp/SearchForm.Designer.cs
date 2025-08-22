@@ -57,6 +57,7 @@
             btn_search.TabIndex = 2;
             btn_search.Text = "Search";
             btn_search.UseVisualStyleBackColor = true;
+            btn_search.Click += btn_search_Click;
             // 
             // label1
             // 

@@ -25,7 +25,7 @@ namespace StudentMVCApp.View
 
         private void searchToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SearchForm searchForm = new SearchForm();
+            SearchForm searchForm = new SearchForm(globalStudentController);
             searchForm.MdiParent = this;
             searchForm.Show();
         }
