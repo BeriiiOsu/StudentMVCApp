@@ -20,6 +20,7 @@ namespace StudentMVCApp
             };
             string result = _studentController.AddStudent(student);
             MessageBox.Show(result);
+            ClearFields();
         }
         private void btnViewAll_Click(object sender, EventArgs e)
         {
@@ -27,6 +28,26 @@ namespace StudentMVCApp
             var students = _studentController.GetAllStudents();
             foreach (var student in students)
                 lstStudents.Items.Add($"{student.Id} - {student.FullName}, Age: {student.Age}");
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            lstStudents.Items.Clear();
+            List<Student> searchList = _studentController.GetAllStudents().For;
+            searchList.ForEach(student =>
+            {
+                //ignore case while searching
+                if (student.FullName.Contains(txtSearch.Text, StringComparison.OrdinalIgnoreCase))
+                    lstStudents.Items.Add($"{student.Id} - {student.FullName}, Age: {student.Age}");
+            });
+            searchList.Sort();
+            foreach (var student in searchList)
+                lstStudents.Items.Add($"{student.Id} - {student.FullName}, Age: {student.Age}");
+        }
+        private void ClearFields()
+        {
+            txtName.Clear();
+            txtAge.Clear();
         }
     }
 }

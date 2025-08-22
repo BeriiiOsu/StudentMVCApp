@@ -35,6 +35,7 @@
             label2 = new Label();
             txtAge = new TextBox();
             btnViewAll = new Button();
+            txtSearch = new TextBox();
             SuspendLayout();
             // 
             // txtName
@@ -67,7 +68,7 @@
             // 
             lstStudents.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lstStudents.FormattingEnabled = true;
-            lstStudents.Location = new Point(12, 129);
+            lstStudents.Location = new Point(12, 165);
             lstStudents.Name = "lstStudents";
             lstStudents.Size = new Size(453, 244);
             lstStudents.TabIndex = 3;
@@ -86,24 +87,36 @@
             txtAge.Location = new Point(12, 71);
             txtAge.Name = "txtAge";
             txtAge.Size = new Size(61, 23);
-            txtAge.TabIndex = 4;
+            txtAge.TabIndex = 1;
             // 
             // btnViewAll
             // 
             btnViewAll.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnViewAll.Location = new Point(390, 379);
+            btnViewAll.Location = new Point(391, 415);
             btnViewAll.Name = "btnViewAll";
             btnViewAll.Size = new Size(75, 23);
-            btnViewAll.TabIndex = 6;
+            btnViewAll.TabIndex = 3;
             btnViewAll.Text = "View All ";
             btnViewAll.UseVisualStyleBackColor = true;
             btnViewAll.Click += btnViewAll_Click;
             // 
+            // txtSearch
+            // 
+            txtSearch.Anchor = AnchorStyles.Right;
+            txtSearch.Location = new Point(284, 136);
+            txtSearch.Name = "txtSearch";
+            txtSearch.PlaceholderText = "Search student here";
+            txtSearch.Size = new Size(181, 23);
+            txtSearch.TabIndex = 4;
+            txtSearch.TextChanged += txtSearch_TextChanged;
+            // 
             // Form1
             // 
+            AcceptButton = btnAdd;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(478, 450);
+            Controls.Add(txtSearch);
             Controls.Add(btnViewAll);
             Controls.Add(label2);
             Controls.Add(txtAge);
@@ -126,5 +139,6 @@
         private Label label2;
         private TextBox txtAge;
         private Button btnViewAll;
+        private TextBox txtSearch;
     }
 }
