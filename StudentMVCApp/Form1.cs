@@ -5,10 +5,10 @@ namespace StudentMVCApp
     public partial class Form1 : Form
     {
         private readonly StudentController _studentController;
-        public Form1()
+        public Form1(StudentController parentStudentController)
         {
             InitializeComponent();
-            _studentController = new StudentController(new StudentRepository());
+            _studentController = parentStudentController;
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {

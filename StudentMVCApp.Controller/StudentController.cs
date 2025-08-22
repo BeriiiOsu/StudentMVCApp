@@ -25,6 +25,12 @@ namespace StudentMVCApp.Controller
             catch (Exception ex) { return $"Error adding student: {ex.Message}"; }
         }
 
+        public List<Student> SearchStudent(string name)
+        {
+            try { return _repository.SearchStudentsByName(name); }
+            catch { return new List<Student>(); }
+        }
+
         public List<Student> GetAllStudents()
         {
             try { return _repository.GetAllStudents(); }
