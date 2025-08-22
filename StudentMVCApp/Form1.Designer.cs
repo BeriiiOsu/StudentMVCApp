@@ -36,13 +36,18 @@
             txtAge = new TextBox();
             btnViewAll = new Button();
             txtSearch = new TextBox();
+            btnEdit = new Button();
+            btnDelete = new Button();
+            cbEditMode = new CheckBox();
+            txtId = new TextBox();
+            lblId = new Label();
             SuspendLayout();
             // 
             // txtName
             // 
             txtName.Location = new Point(12, 27);
             txtName.Name = "txtName";
-            txtName.Size = new Size(214, 23);
+            txtName.Size = new Size(237, 23);
             txtName.TabIndex = 0;
             // 
             // label1
@@ -58,7 +63,7 @@
             // 
             btnAdd.Location = new Point(12, 100);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(75, 23);
+            btnAdd.Size = new Size(75, 38);
             btnAdd.TabIndex = 2;
             btnAdd.Text = "Add";
             btnAdd.UseVisualStyleBackColor = true;
@@ -72,6 +77,7 @@
             lstStudents.Name = "lstStudents";
             lstStudents.Size = new Size(453, 244);
             lstStudents.TabIndex = 3;
+            lstStudents.SelectedIndexChanged += lstStudents_SelectedIndexChanged;
             // 
             // label2
             // 
@@ -110,12 +116,69 @@
             txtSearch.TabIndex = 4;
             txtSearch.TextChanged += txtSearch_TextChanged;
             // 
+            // btnEdit
+            // 
+            btnEdit.Enabled = false;
+            btnEdit.Location = new Point(93, 100);
+            btnEdit.Name = "btnEdit";
+            btnEdit.Size = new Size(75, 38);
+            btnEdit.TabIndex = 6;
+            btnEdit.Text = "Edit";
+            btnEdit.UseVisualStyleBackColor = true;
+            btnEdit.Click += btnEdit_Click;
+            // 
+            // btnDelete
+            // 
+            btnDelete.Enabled = false;
+            btnDelete.Location = new Point(174, 100);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(75, 38);
+            btnDelete.TabIndex = 7;
+            btnDelete.Text = "Delete";
+            btnDelete.UseVisualStyleBackColor = true;
+            // 
+            // cbEditMode
+            // 
+            cbEditMode.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            cbEditMode.AutoSize = true;
+            cbEditMode.Location = new Point(12, 418);
+            cbEditMode.Name = "cbEditMode";
+            cbEditMode.Size = new Size(80, 19);
+            cbEditMode.TabIndex = 8;
+            cbEditMode.Text = "Edit mode";
+            cbEditMode.UseVisualStyleBackColor = true;
+            cbEditMode.CheckedChanged += cbEditMode_CheckedChanged;
+            // 
+            // txtId
+            // 
+            txtId.Enabled = false;
+            txtId.Location = new Point(93, 71);
+            txtId.Name = "txtId";
+            txtId.ReadOnly = true;
+            txtId.Size = new Size(156, 23);
+            txtId.TabIndex = 9;
+            // 
+            // lblId
+            // 
+            lblId.AutoSize = true;
+            lblId.Enabled = false;
+            lblId.Location = new Point(93, 53);
+            lblId.Name = "lblId";
+            lblId.Size = new Size(18, 15);
+            lblId.TabIndex = 10;
+            lblId.Text = "ID";
+            // 
             // Form1
             // 
             AcceptButton = btnAdd;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(478, 450);
+            Controls.Add(lblId);
+            Controls.Add(txtId);
+            Controls.Add(cbEditMode);
+            Controls.Add(btnDelete);
+            Controls.Add(btnEdit);
             Controls.Add(txtSearch);
             Controls.Add(btnViewAll);
             Controls.Add(label2);
@@ -140,5 +203,10 @@
         private TextBox txtAge;
         private Button btnViewAll;
         private TextBox txtSearch;
+        private Button btnEdit;
+        private Button btnDelete;
+        private CheckBox cbEditMode;
+        private TextBox txtId;
+        private Label lblId;
     }
 }
