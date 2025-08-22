@@ -33,7 +33,7 @@ namespace StudentMVCApp
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             lstStudents.Items.Clear();
-            List<Student> searchList = _studentController.GetAllStudents().For;
+            List<Student> searchList = _studentController.GetAllStudents();
             searchList.ForEach(student =>
             {
                 //ignore case while searching

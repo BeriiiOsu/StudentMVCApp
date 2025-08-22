@@ -102,7 +102,7 @@
             // 
             // txtSearch
             // 
-            txtSearch.Anchor = AnchorStyles.Right;
+            txtSearch.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             txtSearch.Location = new Point(284, 136);
             txtSearch.Name = "txtSearch";
             txtSearch.PlaceholderText = "Search student here";
