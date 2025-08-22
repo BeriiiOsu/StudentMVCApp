@@ -41,5 +41,17 @@ namespace StudentMVCApp.Controller
 
             return _repository.EditStudent(student, id);
         }
+
+        public string DeleteStudent(string id)
+        {
+            try 
+            {
+                if (!string.IsNullOrWhiteSpace(id)) 
+                   return _repository.DeleteStudent(int.Parse(id));
+                    
+                return "Invalid ID format.";
+            }
+            catch { return "Something went wrong!"; }
+        }
     }
 }

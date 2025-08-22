@@ -100,5 +100,22 @@ namespace StudentMVCApp
                 ResetFields();
             }
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            string result = "";
+            if (MessageBox.Show("Are you sure you want to delete this student?",
+                "Confirm Delete",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                result = _studentController.DeleteStudent(txtId.Text);
+                MessageBox.Show(result);
+                ResetFields();
+                btnViewAll.PerformClick();
+            }
+            else
+                MessageBox.Show("Deletion cancelled.");
+        }
     }
 }

@@ -17,5 +17,15 @@ namespace StudentMVCApp.Controller
             return "Student not found.";
         }
         public List<Student> GetAllStudents() { return _students; }
+        public string DeleteStudent(int id)
+        {
+            Student studentToDelete = _students.Find(s => s.Id == id);
+            if (studentToDelete != null)
+            {
+                _students.Remove(studentToDelete);
+                return "Student deleted successfully.";
+            }
+            return "Student not found.";
+        }
     }
 }
