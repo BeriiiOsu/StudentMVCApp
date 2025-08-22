@@ -20,7 +20,7 @@ namespace StudentMVCApp
             };
             string result = _studentController.AddStudent(student);
             MessageBox.Show(result);
-            ClearFields();
+            ResetFields();
         }
         private void btnViewAll_Click(object sender, EventArgs e)
         {
@@ -41,10 +41,11 @@ namespace StudentMVCApp
                     lstStudents.Items.Add($"{student.Id} - {student.FullName}, Age: {student.Age}");
             });
         }
-        private void ClearFields()
+        private void ResetFields()
         {
             txtName.Clear();
             txtAge.Clear();
+            txtName.Focus();
         }
     }
 }
