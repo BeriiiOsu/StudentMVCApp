@@ -35,13 +35,9 @@ namespace StudentMVCApp
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             lstStudents.Items.Clear();
-            List<Student> searchList = _studentController.GetAllStudents();
+            List<Student> searchList = _studentController.SearchStudent(txtSearch.Text);
             searchList.ForEach(student =>
-            {
-                //ignore case while searching
-                if (student.FullName.Contains(txtSearch.Text, StringComparison.OrdinalIgnoreCase))
-                    lstStudents.Items.Add($"{student.Id} - {student.FullName}, Age: {student.Age}");
-            });
+                lstStudents.Items.Add($"{student.Id} - {student.FullName}, Age: {student.Age}"));
         }
         private void ResetFields()
         {

@@ -5,7 +5,7 @@ namespace StudentMVCApp.Controller
     {
         private readonly StudentRepository _repository;
 
-        public StudentController(StudentRepository studentRepository) { _repository = studentRepository; }   
+        public StudentController(StudentRepository studentRepository) { _repository = studentRepository; }
 
         public string AddStudent(Student student)
         {
@@ -28,12 +28,12 @@ namespace StudentMVCApp.Controller
         public List<Student> GetAllStudents()
         {
             try { return _repository.GetAllStudents(); }
-            catch {  return new List<Student>(); }
+            catch { return new List<Student>(); }
         }
 
         public string EditStudent(Student student, int id)
         {
-            if(string.IsNullOrWhiteSpace(student?.FullName))
+            if (string.IsNullOrWhiteSpace(student?.FullName))
                 return "Full Name is required.";
 
             if (student.Age <= 0)
@@ -44,14 +44,22 @@ namespace StudentMVCApp.Controller
 
         public string DeleteStudent(string id)
         {
-            try 
+            try
             {
-                if (!string.IsNullOrWhiteSpace(id)) 
-                   return _repository.DeleteStudent(int.Parse(id));
-                    
+                if (!string.IsNullOrWhiteSpace(id))
+                    return _repository.DeleteStudent(int.Parse(id));
+
                 return "Invalid ID format.";
             }
             catch { return "Something went wrong!"; }
+        }
+
+        public List<Student> SearchStudent(string name)
+        {
+            //ignore case while searching
+            return _repository.GetAllStudents()
+                              .Where(s => s.FullName.Contains(name, StringComparison.OrdinalIgnoreCase))
+                              .ToList();
         }
     }
 }
