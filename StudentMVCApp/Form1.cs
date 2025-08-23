@@ -58,15 +58,22 @@ namespace StudentMVCApp
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            var student = new Student
+            try
             {
-                Id = int.Parse(txtId.Text),
-                FullName = txtName.Text,
-                Age = int.TryParse(txtAge.Text, out int age) ? age : 0
-            };
-            string result = _studentController.EditStudent(student, int.Parse(txtId.Text));
-            MessageBox.Show(result);
-            btnViewAll.PerformClick();
+                var student = new Student
+                {
+                    Id = int.Parse(txtId.Text),
+                    FullName = txtName.Text,
+                    Age = int.TryParse(txtAge.Text, out int age) ? age : 0
+                };
+                string result = _studentController.EditStudent(student, int.Parse(txtId.Text));
+                MessageBox.Show(result);
+                btnViewAll.PerformClick();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}");
+            }
         }
 
         private void cbEditMode_CheckedChanged(object sender, EventArgs e)
@@ -99,19 +106,27 @@ namespace StudentMVCApp
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            string result = "";
-            if (MessageBox.Show("Are you sure you want to delete this student?",
-                "Confirm Delete",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question) == DialogResult.Yes)
+            try
             {
-                result = _studentController.DeleteStudent(txtId.Text);
-                MessageBox.Show(result);
-                ResetFields();
-                btnViewAll.PerformClick();
+                string result = "";
+                if (MessageBox.Show("Are you sure you want to delete this student?",
+                    "Confirm Delete",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    result = _studentController.DeleteStudent(txtId.Text);
+                    MessageBox.Show(result);
+                    ResetFields();
+                    btnViewAll.PerformClick();
+                }
+                else
+                    MessageBox.Show("Deletion cancelled.");
             }
-            else
-                MessageBox.Show("Deletion cancelled.");
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}");
+            }
+
         }
     }
 }

@@ -33,7 +33,7 @@ namespace StudentMVCApp.Controller
 
         public string EditStudent(Student student, int id)
         {
-            if (string.IsNullOrWhiteSpace(student?.FullName))
+            if (string.IsNullOrWhiteSpace(student?.FullName) || student == null)
                 return "Full Name is required.";
 
             if (student.Age <= 0)
