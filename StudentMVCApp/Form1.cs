@@ -1,16 +1,16 @@
 using StudentMVCApp.Controller;
 using StudentMVCApp.Model;
-using System.Windows.Forms;
 namespace StudentMVCApp
 {
     public partial class Form1 : Form
     {
         private bool _isEditMode = false;
         private readonly StudentController _studentController;
-        public Form1()
+        public Form1(StudentController parentStudentController)
         {
             InitializeComponent();
             _studentController = new StudentController(new StudentRepository());
+            _studentController = parentStudentController;
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {

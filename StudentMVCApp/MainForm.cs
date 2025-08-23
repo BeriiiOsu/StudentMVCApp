@@ -1,15 +1,21 @@
-﻿namespace StudentMVCApp.View
+﻿using StudentMVCApp.Controller;
+
+namespace StudentMVCApp.View
 {
     public partial class MainForm : Form
     {
+        private readonly StudentController globalStudentController;
+        private readonly StudentRepository globalStudentRepository;
         public MainForm()
         {
             InitializeComponent();
             this.IsMdiContainer = true;
+            this.globalStudentRepository = new StudentRepository();
+            this.globalStudentController = new StudentController(globalStudentRepository);
         }
         private void studentFormToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form1 studentForm = new Form1();
+            Form1 studentForm = new Form1(globalStudentController);
             studentForm.MdiParent = this;
             studentForm.Show();
         }
